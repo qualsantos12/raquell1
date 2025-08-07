@@ -1,0 +1,1830 @@
+🔄 **HTML Edit Mode** - Processing your edit request...
+
+Entendi o problema! Você criou o repositório mas só aparece seu nome porque há CSS conflitante no código. Vou corrigir isso:
+
+```diff
+<<<<<<< SEARCH
+        /* Font Awesome Icons CSS Inline */
+        .fas { font-family: 'Font Awesome 6 Free'; font-weight: 900; }
+        .fa-dumbbell:before { content: "🏋️"; }
+        .fa-fire:before { content: "🔥"; }
+        .fa-muscle:before { content: "💪"; }
+        .fa-bed:before { content: "🛏️"; }
+        .fa-chart-line:before { content: "📈"; }
+        .fa-lightning-bolt:before { content: "⚡"; }
+        .fa-heartbeat:before { content: "💓"; }
+        .fa-clock:before { content: "⏰"; }
+        .fa-spa:before { content: "🧘"; }
+        .fa-user-circle:before { content: "👤"; }
+        .fa-arrow-left:before { content: "←"; }
+        .fa-play:before { content: "▶️"; }
+        .fa-stop:before { content: "⏹️"; }
+        .fa-play-circle:before { content: "▶️"; }
+        .fa-lightbulb:before { content: "💡"; }
+    </style>
+=======
+=======
+>>>>>>> REPLACE
+
+<<
+```
+<<<<< SEARCH
+    <style>
+        .gradient-bg {
+=======
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .gradient-bg {
+>>>>>>> REPLACE
+
+**Problema identificado:** Há CSS duplicado/conflitante que está quebrando o layout. 
+
+**Solução:** 
+1. No GitHub, clique no arquivo `index.html`
+2. Clique no ícone de lápis (editar)
+3. Aplique essas correções acima
+4. Clique em "Commit changes"
+5. Aguarde 2-3 minutos e teste novamente
+
+**Alternativa rápida:**
+Se ainda não funcionar, exclua o arquivo atual e crie um novo `index.html` apenas com o código limpo que vou te mandar separadamente.
+
+Quer que eu mande o código limpo completo sem conflitos? 🔧Here is the updated HTML content after applying above edits:
+
+```html
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="FitApp">
+    <title>FitApp - Treino Hipertrofia Quadríceps</title>
+    <link rel="manifest" href="data:application/json;charset=utf-8,{%22name%22:%22FitApp%20-%20Hipertrofia%22,%22short_name%22:%22FitApp%22,%22start_url%22:%22.%22,%22display%22:%22standalone%22,%22background_color%22:%22%23ffffff%22,%22theme_color%22:%22%23667eea%22,%22icons%22:[{%22src%22:%22data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%20100%20100%27%3E%3Ctext%20y%3D%27.9em%27%20font-size%3D%2790%27%3E💪%3C/text%3E%3C/svg%3E%22,%22sizes%22:%22192x192%22,%22type%22:%22image/svg+xml%22}]}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        =======
+=======
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        .exercise-card {
+            background: linear-gradient(145deg, #ffffff, #f0f4f8);
+            border: 1px solid #e2e8f0;
+        }
+        .timer-display {
+            font-family: 'Courier New', monospace;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .progress-ring {
+            transform: rotate(-90deg);
+        }
+        .progress-ring-circle {
+            stroke-dasharray: 251.2;
+            stroke-dashoffset: 251.2;
+            transition: stroke-dashoffset 1s linear;
+        }
+        
+        /* Offline styles for better mobile experience */
+        @media (max-width: 768px) {
+            .container { padding: 0.5rem; }
+            .text-3xl { font-size: 1.875rem; }
+            .grid { gap: 1rem; }
+            .lg\\:w-80 { width: 100%; }
+            .lg\\:flex-row { flex-direction: column; }
+        }
+        
+        /* PWA and offline enhancements */
+        body.offline::before {
+            content: "Modo Offline - Todos os dados salvos localmente";
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #fbbf24;
+            color: #000;
+            text-align: center;
+            padding: 0.5rem;
+            z-index: 1000;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="gradient-bg text-white p-4 shadow-lg">
+        <div class="container mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <i class="fas fa-dumbbell text-2xl"></i>
+                <h1 class="text-2xl font-bold">FitApp - Hipertrofia</h1>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span class="text-sm">Peso: 57kg</span>
+                <i class="fas fa-user-circle text-2xl"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4">
+        <!-- Dashboard View -->
+        <div id="dashboard" class="space-y-6">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">Seu Treino Semanal</h2>
+                <p class="text-gray-600">Programa focado em hipertrofia de quadríceps</p>
+            </div>
+
+            <!-- Weekly Schedule -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Segunda -->
+                <div class="workout-card card-hover bg-white rounded-xl p-6 shadow-lg cursor-pointer" onclick="showWorkout('monday')">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-gray-800">Segunda-feira</h3>
+                        <i class="fas fa-fire text-red-500 text-2xl"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <p class="text-purple-600 font-semibold text-lg">QUADRÍCEPS ISOLADO</p>
+                        <p class="text-gray-600">7 exercícios • 60 min</p>
+                        <div class="flex items-center space-x-2 text-sm text-gray-500">
+                            <i class="fas fa-clock"></i>
+                            <span>Foco máximo em hipertrofia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Terça -->
+                <div class="workout-card card-hover bg-white rounded-xl p-6 shadow-lg cursor-pointer" onclick="showWorkout('tuesday')">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-gray-800">Terça-feira</h3>
+                        <i class="fas fa-muscle text-blue-500 text-2xl"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <p class="text-blue-600 font-semibold text-lg">COSTAS + BÍCEPS + ABD</p>
+                        <p class="text-gray-600">9 exercícios • 60 min</p>
+                        <div class="flex items-center space-x-2 text-sm text-gray-500">
+                            <i class="fas fa-clock"></i>
+                            <span>Pull + Core</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quarta -->
+                <div class="workout-card card-hover bg-gray-100 rounded-xl p-6 shadow-lg">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-gray-600">Quarta-feira</h3>
+                        <i class="fas fa-bed text-gray-400 text-2xl"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <p class="text-gray-500 font-semibold text-lg">DESCANSO</p>
+                        <p class="text-gray-500">Recuperação ativa</p>
+                        <div class="flex items-center space-x-2 text-sm text-gray-400">
+                            <i class="fas fa-spa"></i>
+                            <span>Relaxamento e alongamento</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quinta -->
+                <div class="workout-card card-hover bg-white rounded-xl p-6 shadow-lg cursor-pointer" onclick="showWorkout('thursday')">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-gray-800">Quinta-feira</h3>
+                        <i class="fas fa-chart-line text-green-500 text-2xl"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <p class="text-green-600 font-semibold text-lg">POSTERIOR + GLÚTEOS</p>
+                        <p class="text-gray-600">7 exercícios • 55 min</p>
+                        <div class="flex items-center space-x-2 text-sm text-gray-500">
+                            <i class="fas fa-clock"></i>
+                            <span>Força e definição</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sexta -->
+                <div class="workout-card card-hover bg-white rounded-xl p-6 shadow-lg cursor-pointer" onclick="showWorkout('friday')">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-gray-800">Sexta-feira</h3>
+                        <i class="fas fa-lightning-bolt text-yellow-500 text-2xl"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <p class="text-yellow-600 font-semibold text-lg">OMBROS + TRÍCEPS + ABD</p>
+                        <p class="text-gray-600">9 exercícios • 60 min</p>
+                        <div class="flex items-center space-x-2 text-sm text-gray-500">
+                            <i class="fas fa-clock"></i>
+                            <span>Push + Core</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sábado -->
+                <div class="workout-card card-hover bg-white rounded-xl p-6 shadow-lg cursor-pointer" onclick="showWorkout('saturday')">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-gray-800">Sábado</h3>
+                        <i class="fas fa-heartbeat text-pink-500 text-2xl"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <p class="text-pink-600 font-semibold text-lg">PANTURRILHAS + CORE</p>
+                        <p class="text-gray-600">6 exercícios • 45 min</p>
+                        <div class="flex items-center space-x-2 text-sm text-gray-500">
+                            <i class="fas fa-clock"></i>
+                            <span>Finalizador semanal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Weekly Stats -->
+            <div class="bg-white rounded-xl p-6 shadow-lg mt-8">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">Estatísticas da Semana</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-purple-600">5</div>
+                        <div class="text-sm text-gray-600">Dias de treino</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-blue-600">37</div>
+                        <div class="text-sm text-gray-600">Exercícios total</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-green-600">5h</div>
+                        <div class="text-sm text-gray-600">Tempo semanal</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-red-600">14</div>
+                        <div class="text-sm text-gray-600">Séries quadríceps</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Workout Detail View -->
+        <div id="workout-detail" class="hidden">
+            <div class="flex items-center mb-6">
+                <button onclick="showDashboard()" class="bg-gray-200 hover:bg-gray-300 p-2 rounded-lg mr-4 transition-colors">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <div>
+                    <h2 id="workout-title" class="text-2xl font-bold text-gray-800"></h2>
+                    <p id="workout-subtitle" class="text-gray-600"></p>
+                </div>
+            </div>
+
+            <!-- Timer Section -->
+            <div class="bg-white rounded-xl p-6 shadow-lg mb-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-800">Timer de Descanso</h3>
+                        <p class="text-gray-600">Entre séries: 60-90 segundos</p>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="relative">
+                            <svg class="w-16 h-16 progress-ring">
+                                <circle cx="32" cy="32" r="28" stroke="#e2e8f0" stroke-width="4" fill="none"></circle>
+                                <circle id="progress-circle" cx="32" cy="32" r="28" stroke="#667eea" stroke-width="4" fill="none" class="progress-ring-circle"></circle>
+                            </svg>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span id="timer-display" class="text-lg font-bold text-gray-800">90</span>
+                            </div>
+                        </div>
+                        <div class="space-x-2">
+                            <button id="start-timer" onclick="startTimer(90)" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-colors">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <button id="stop-timer" onclick="stopTimer()" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition-colors">
+                                <i class="fas fa-stop"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercises List -->
+            <div id="exercises-container" class="space-y-4">
+                <!-- Exercises will be dynamically loaded here -->
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Workout data
+        const workouts = {
+            monday: {
+                title: "Segunda-feira - Quadríceps Isolado",
+                subtitle: "Foco máximo em hipertrofia de quadríceps",
+                exercises: [
+                    {
+                        name: "Agachamento Livre",
+                        sets: "4x8-10",
+                        instructions: "Posicione a barra nas costas, desça controladamente até 90°, mantenha o core contraído. Foque na contração do quadríceps na subida.",
+                        tips: "Mantenha os joelhos alinhados com os pés, não deixe-os ceder para dentro.",
+                        image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4bb7e220-1ec2-41ac-a714-1ec89ba1d7e0.png",
+                        alt: "Person performing barbell back squat with proper form, knees aligned over toes, descending to 90 degrees"
+                    },
+                    {
+                        name: "Leg Press 45°",
+                        sets: "4x10-12",
+                        instructions: "Posicione os pés na plataforma na largura do quadril, desça até formar 90° nos joelhos, empurre com força.",
+                        tips: "Controle a descida por 2-3 segundos, expire na subida.",
+                        image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e1ea6ceb-2092-489d-ad79-e71b0f8f5a5b.png",
+                        alt: "Woman using 45-degree leg press machine with feet positioned shoulder-width apart, knees at 90 degrees"
+                    },
+                    {
+                        name: "Agachamento Hack",
+                        sets: "3x10-12",
+                        instructions: "No hack squat, mantenha as costas apoiadas, desça controladamente e empurre pelos calcanhares.",
+                        tips: "Posição dos pés mais alta na plataforma enfatiza quadríceps.",
+                        image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/78064bea-af54-452c-9f14-c7e12169aa90.png",
+                        alt: "Person using hack squat machine with back supported against pad, feet positioned high on platform"
+                    },
+                    {
+                        name: "Agachamento Búlgaro",
+                        sets: "3x12 cada perna",
+                        instructions: "Pé traseiro apoiado no banco, desça o joelho quase tocando o chão, suba contraindo o quadríceps.",
+                        tips: "Mantenha o tronco ereto, não se incline para frente.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Woman performing Bulgarian split squat with rear foot elevated on bench, front leg forming 90-degree angle"
+                    },
+                    {
+                        name: "Afundo Caminhando",
+                        sets: "3x12 cada perna",
+                        instructions: "Dê um passo à frente, desça até ambos os joelhos formarem 90°, empurre e alterne as pernas.",
+                        tips: "Mantenha o passo longo para maior ativação do quadríceps.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person performing walking lunges with proper form, alternating legs with each step forward"
+                    },
+                    {
+                        name: "Extensora",
+                        sets: "4x12-15",
+                        instructions: "Sentada na extensora, estenda as pernas completamente, contraia o quadríceps no topo por 1 segundo.",
+                        tips: "Movimento controlado, evite balanço, foque na contração.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Woman seated on leg extension machine, extending legs to full extension while contracting quadriceps"
+                    },
+                    {
+                        name: "Extensora Drop Set",
+                        sets: "2x12+8+6",
+                        instructions: "Faça 12 reps, reduza o peso imediatamente, faça 8 reps, reduza novamente e faça 6 reps sem descanso.",
+                        tips: "Técnica avançada para falha muscular total.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Close-up of leg extension machine with weight stack, showing drop set technique progression"
+                    }
+                ]
+            },
+            tuesday: {
+                title: "Terça-feira - Costas + Bíceps + Abdômen",
+                subtitle: "Treino de puxar + fortalecimento do core",
+                exercises: [
+                    {
+                        name: "Puxada Frente",
+                        sets: "4x8-10",
+                        instructions: "Segure a barra com pegada ampla, puxe até a altura do peito, contraia as escápulas.",
+                        tips: "Mantenha o peito estufado, não balance o corpo.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person performing lat pulldown with wide grip, pulling bar to chest level with proper posture"
+                    },
+                    {
+                        name: "Remada Curvada",
+                        sets: "4x10-12",
+                        instructions: "Incline o tronco 45°, puxe a barra até o abdômen, aperte as escápulas.",
+                        tips: "Mantenha as costas retas, core contraído.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person performing bent-over barbell row with 45-degree torso angle, pulling bar to abdomen"
+                    },
+                    {
+                        name: "Remada Sentada",
+                        sets: "3x10-12",
+                        instructions: "Sentado na polia, puxe o cabo até o abdômen, mantenha o peito estufado.",
+                        tips: "Controle a fase negativa, não use impulso.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person seated at cable row machine, pulling handle to abdomen with chest out and shoulders back"
+                    },
+                    {
+                        name: "Pullover",
+                        sets: "3x12-15",
+                        instructions: "Deitado no banco, segure o halter acima do peito, desça atrás da cabeça controladamente.",
+                        tips: "Mantenha leve flexão nos cotovelos, sinta o alongamento.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person lying on bench performing dumbbell pullover, lowering weight behind head with slight elbow bend"
+                    },
+                    {
+                        name: "Rosca Direta",
+                        sets: "4x10-12",
+                        instructions: "Em pé, cotovelos fixos, flexione os braços contraindo os bíceps no topo.",
+                        tips: "Não balance o corpo, movimento isolado dos bíceps.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person standing with barbell performing bicep curls, elbows fixed at sides, full range of motion"
+                    },
+                    {
+                        name: "Rosca Martelo",
+                        sets: "3x12-15",
+                        instructions: "Halteres em posição neutra, flexione alternadamente mantendo punhos firmes.",
+                        tips: "Movimento controlado, foque na contração do bíceps.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person performing hammer curls with dumbbells in neutral grip position, alternating arms"
+                    },
+                    {
+                        name: "Rosca Concentrada",
+                        sets: "3x12-15",
+                        instructions: "Sentado, cotovelo apoiado na coxa, flexione o braço isoladamente.",
+                        tips: "Movimento lento e controlado, máxima contração.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person seated performing concentration curls with elbow braced against inner thigh"
+                    },
+                    {
+                        name: "Prancha",
+                        sets: "3x30-45seg",
+                        instructions: "Apoie antebraços e pés, mantenha corpo alinhado, contraia o abdômen.",
+                        tips: "Não deixe o quadril ceder, respiração controlada.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person holding plank position with forearms and feet supporting body, maintaining straight line"
+                    },
+                    {
+                        name: "Abdominal Supra",
+                        sets: "3x15-20",
+                        instructions: "Deitado, mãos atrás da cabeça, suba contraindo o abdômen superior.",
+                        tips: "Não puxe o pescoço, movimento controlado.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person lying on back performing crunches with hands behind head, lifting shoulders off ground"
+                    }
+                ]
+            },
+            thursday: {
+                title: "Quinta-feira - Posterior + Glúteos",
+                subtitle: "Fortalecimento de posterior e glúteos",
+                exercises: [
+                    {
+                        name: "Hip Thrust",
+                        sets: "4x12-15",
+                        instructions: "Costas apoiadas no banco, barra no quadril, empurre contraindo glúteos no topo.",
+                        tips: "Pause 1 segundo no topo, máxima contração glútea.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person performing hip thrust with back against bench, barbell across hips, full glute contraction at top"
+                    },
+                    {
+                        name: "Stiff",
+                        sets: "4x10-12",
+                        instructions: "Pernas estendidas, desça a barra deslizando pelas pernas, sinta o alongamento posterior.",
+                        tips: "Mantenha as costas retas, movimento no quadril.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person performing Romanian deadlift with barbell, sliding weight down legs with straight back"
+                    },
+                    {
+                        name: "Mesa Flexora",
+                        sets: "4x12-15",
+                        instructions: "Deitado na mesa, flexione as pernas contraindo os isquiotibiais.",
+                        tips: "Movimento controlado, contraia no topo por 1 segundo.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person lying face down on leg curl machine, curling legs up by contracting hamstrings"
+                    },
+                    {
+                        name: "Agachamento Sumo",
+                        sets: "3x12-15",
+                        instructions: "Pés afastados, pontas para fora, desça contraindo glúteos e adutores.",
+                        tips: "Joelhos seguem direção dos pés, descida profunda.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person performing sumo squat with wide stance and toes pointed outward, deep squat position"
+                    },
+                    {
+                        name: "Elevação Pélvica",
+                        sets: "3x15-20",
+                        instructions: "Deitado, pés no chão, eleve o quadril contraindo glúteos.",
+                        tips: "Movimento explosivo na subida, pause no topo.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person lying on back performing glute bridges, lifting hips up while contracting glutes"
+                    },
+                    {
+                        name: "Cadeira Abdutora",
+                        sets: "3x15-20",
+                        instructions: "Sentado na máquina, abra as pernas contra a resistência.",
+                        tips: "Movimento controlado, foque na contração lateral do glúteo.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person seated on hip abduction machine, spreading legs apart against resistance"
+                    },
+                    {
+                        name: "Good Morning",
+                        sets: "3x12-15",
+                        instructions: "Barra nas costas, incline o tronco mantendo pernas levemente flexionadas.",
+                        tips: "Movimento no quadril, sinta o alongamento posterior.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person with barbell on shoulders performing good morning exercise, hinging at hips with slight knee bend"
+                    }
+                ]
+            },
+            friday: {
+                title: "Sexta-feira - Ombros + Tríceps + Abdômen",
+                subtitle: "Treino de empurrar + fortalecimento do core",
+                exercises: [
+                    {
+                        name: "Desenvolvimento Ombros",
+                        sets: "4x8-10",
+                        instructions: "Sentado, empurre a barra acima da cabeça, desça controladamente até a altura dos ombros.",
+                        tips: "Mantenha o core contraído, não arqueie as costas.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person seated performing overhead press with barbell, pressing weight above head with controlled movement"
+                    },
+                    {
+                        name: "Elevação Lateral",
+                        sets: "4x12-15",
+                        instructions: "Braços ao lado do corpo, eleve os halteres lateralmente até altura dos ombros.",
+                        tips: "Leve inclinação para frente, não balance o corpo.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person performing lateral raises with dumbbells, lifting weights to shoulder height with arms extended"
+                    },
+                    {
+                        name: "Elevação Posterior",
+                        sets: "3x12-15",
+                        instructions: "Inclinado, abra os braços para trás contraindo a parte posterior dos ombros.",
+                        tips: "Movimento controlado, foque no deltóide posterior.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person bent over performing rear delt flyes with dumbbells, opening arms backward to target rear delts"
+                    },
+                    {
+                        name: "Desenvolvimento Arnold",
+                        sets: "3x10-12",
+                        instructions: "Inicie com halteres na frente, gire e empurre acima da cabeça.",
+                        tips: "Movimento fluido de rotação e empurrada.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person performing Arnold press with dumbbells, rotating from front position to overhead press"
+                    },
+                    {
+                        name: "Tríceps Pulley",
+                        sets: "4x10-12",
+                        instructions: "Cotovelos fixos, empurre a barra para baixo estendendo completamente os braços.",
+                        tips: "Não mova os cotovelos, foque na extensão do tríceps.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person at cable machine performing tricep pushdowns, elbows fixed while extending arms downward"
+                    },
+                    {
+                        name: "Tríceps Francês",
+                        sets: "3x10-12",
+                        instructions: "Deitado, desça o peso atrás da cabeça flexionando apenas os cotovelos.",
+                        tips: "Cotovelos fixos, movimento isolado do tríceps.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person lying on bench performing French press, lowering weight behind head by bending elbows only"
+                    },
+                    {
+                        name: "Tríceps Coice",
+                        sets: "3x12-15",
+                        instructions: "Inclinado, cotovelo fixo, estenda o braço para trás contraindo o tríceps.",
+                        tips: "Movimento controlado, pause na extensão completa.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person bent over performing tricep kickbacks with dumbbell, extending arm backward from fixed elbow position"
+                    },
+                    {
+                        name: "Abdominal Bicicleta",
+                        sets: "3x20",
+                        instructions: "Deitado, simule pedalar trazendo cotovelo ao joelho oposto alternadamente.",
+                        tips: "Movimento controlado, contraia o oblíquo a cada repetição.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person lying on back performing bicycle crunches, bringing opposite elbow to knee in cycling motion"
+                    },
+                    {
+                        name: "Elevação de Pernas",
+                        sets: "3x15-20",
+                        instructions: "Deitado, eleve as pernas estendidas contraindo o abdômen inferior.",
+                        tips: "Não balance as pernas, movimento controlado.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person lying on back performing leg raises, lifting straight legs up while contracting lower abs"
+                    }
+                ]
+            },
+            saturday: {
+                title: "Sábado - Panturrilhas + Core",
+                subtitle: "Finalizador semanal focado em panturrilhas e core",
+                exercises: [
+                    {
+                        name: "Panturrilha em Pé",
+                        sets: "4x15-20",
+                        instructions: "Na máquina em pé, suba na ponta dos pés contraindo as panturrilhas no topo.",
+                        tips: "Amplitude completa, pause 1 segundo no topo.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person on standing calf raise machine, rising up on toes with full contraction at the top"
+                    },
+                    {
+                        name: "Panturrilha Sentada",
+                        sets: "4x15-20",
+                        instructions: "Sentado na máquina, suba na ponta dos pés contra a resistência.",
+                        tips: "Movimento lento e controlado, máxima contração.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person seated on calf raise machine, lifting up on toes against resistance with controlled movement"
+                    },
+                    {
+                        name: "Panturrilha no Leg Press",
+                        sets: "3x20-25",
+                        instructions: "No leg press, use apenas a ponta dos pés para empurrar a plataforma.",
+                        tips: "Amplitude completa, sinta o alongamento na descida.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person using leg press machine for calf raises, pushing platform with toes only for full range of motion"
+                    },
+                    {
+                        name: "Prancha Lateral",
+                        sets: "3x20-30seg cada lado",
+                        instructions: "Apoiado lateralmente no antebraço, mantenha corpo alinhado contraindo oblíquos.",
+                        tips: "Não deixe o quadril ceder, respiração controlada.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person holding side plank position supported by forearm, maintaining straight body line while contracting obliques"
+                    },
+                    {
+                        name: "Russian Twist",
+                        sets: "3x20",
+                        instructions: "Sentado, incline o tronco e gire de um lado para outro contraindo oblíquos.",
+                        tips: "Movimento controlado, mantenha pés elevados.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person seated performing Russian twists, rotating torso side to side with feet elevated and core engaged"
+                    },
+                    {
+                        name: "Prancha",
+                        sets: "3x45-60seg",
+                        instructions: "Apoio nos antebraços e pés, corpo alinhado, contração contínua do core.",
+                        tips: "Aumente o tempo progressivamente, respiração regular.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person in extended plank position with perfect alignment, holding for maximum time with core engaged"
+                    }
+                ]
+            }
+        };
+
+        let timerInterval;
+        let currentTime = 90;
+
+        function showWorkout(day) {
+            const workout = workouts[day];
+            document.getElementById('dashboard').classList.add('hidden');
+            document.getElementById('workout-detail').classList.remove('hidden');
+            
+            document.getElementById('workout-title').textContent = workout.title;
+            document.getElementById('workout-subtitle').textContent = workout.subtitle;
+            
+            const container = document.getElementById('exercises-container');
+            container.innerHTML = '';
+            
+            workout.exercises.forEach((exercise, index) => {
+                const exerciseCard = createExerciseCard(exercise, index + 1);
+                container.appendChild(exerciseCard);
+            });
+        }
+
+        function createExerciseCard(exercise, number) {
+            const card = document.createElement('div');
+            card.className = 'exercise-card rounded-xl p-6 shadow-lg';
+            
+            card.innerHTML = `
+                <div class="flex items-start space-x-4">
+                    <div class="flex-shrink-0">
+                        <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                            ${number}
+                        </div>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="flex flex-col lg:flex-row lg:items-start lg:space-x-6">
+                            <div class="flex-grow mb-4 lg:mb-0">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">${exercise.name}</h3>
+                                <div class="bg-gradient-to-r from-purple-100 to-blue-100 rounded-lg p-3 mb-4">
+                                    <div class="flex items-center space-x-4">
+                                        <div class="flex items-center space-x-2">
+                                            <i class="fas fa-dumbbell text-purple-600"></i>
+                                            <span class="font-semibold text-purple-800">${exercise.sets}</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <i class="fas fa-clock text-blue-600"></i>
+                                            <span class="text-blue-800">60-90s descanso</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="space-y-3">
+                                    <div>
+                                        <h4 class="font-semibold text-gray-700 mb-1">
+                                            <i class="fas fa-play-circle text-green-600 mr-2"></i>
+                                            Como executar:
+                                        </h4>
+                                        <p class="text-gray-600 leading-relaxed">${exercise.instructions}</p>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-700 mb-1">
+                                            <i class="fas fa-lightbulb text-yellow-600 mr-2"></i>
+                                            Dica importante:
+                                        </h4>
+                                        <p class="text-gray-600 leading-relaxed">${exercise.tips}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-shrink-0 lg:w-80">
+                                <div class="bg-gray-100 rounded-lg overflow-hidden">
+                                    <img src="${exercise.image}" alt="${exercise.alt}" class="w-full h-48 object-cover">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        function showDashboard() {
+            document.getElementById('workout-detail').classList.add('hidden');
+            document.getElementById('dashboard').classList.remove('hidden');
+            stopTimer();
+        }
+
+        function startTimer(seconds) {
+            clearInterval(timerInterval);
+            currentTime = seconds;
+            updateTimerDisplay();
+            
+            const circle = document.getElementById('progress-circle');
+            const circumference = 2 * Math.PI * 28;
+            
+            timerInterval = setInterval(() => {
+                currentTime--;
+                updateTimerDisplay();
+                
+                const progress = (seconds - currentTime) / seconds;
+                const offset = circumference - (progress * circumference);
+                circle.style.strokeDashoffset = offset;
+                
+                if (currentTime <= 0) {
+                    clearInterval(timerInterval);
+                    playNotification();
+                }
+            }, 1000);
+        }
+
+        function stopTimer() {
+            clearInterval(timerInterval);
+            currentTime = 90;
+            updateTimerDisplay();
+            const circle = document.getElementById('progress-circle');
+            circle.style.strokeDashoffset = 251.2;
+        }
+
+        function updateTimerDisplay() {
+            document.getElementById('timer-display').textContent = currentTime;
+        }
+
+        function playNotification() {
+            // Simple notification for timer completion
+            if ('Notification' in window && Notification.permission === 'granted') {
+                new Notification('Descanso finalizado!', {
+                    body: 'Hora de fazer a próxima série!',
+                    icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>'
+                });
+            } else {
+                alert('Descanso finalizado! Hora da próxima série!');
+            }
+        }
+
+        // Request notification permission on page load
+        if ('Notification' in window && Notification.permission === 'default') {
+            Notification.requestPermission();
+        }
+
+        // Initialize timer display
+        updateTimerDisplay();
+
+        // Service Worker for offline functionality
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('data:application/javascript;base64,Y29uc3QgQ0FDSEVfTkFNRSA9ICdmaXRhcHAtdjEnOwpjb25zdCB1cmxzVG9DYWNoZSA9IFsKICAnLicsCiAgJy4vaW5kZXguaHRtbCcsCiAgJ2h0dHBzOi8vcGxhY2Vob2xkLmNvL3RhaWx3aW5kY3NzQDMuMy4wLm1pbi5qcycKXTsKCnNlbGYuYWRkRXZlbnRMaXN0ZW5lcignaW5zdGFsbCcsIGV2ZW50ID0+IHsKICBldmVudC53YWl0VW50aWwoCiAgICBjYWNoZXMub3BlbihDQUNIRV9OQU1FKQogICAgICAudGhlbihjYWNoZSA9PiBjYWNoZS5hZGRBbGwodXJsc1RvQ2FjaGUpKQogICk7Cn0pOwoKc2VsZi5hZGRFdmVudExpc3RlbmVyKCdmZXRjaCcsIGV2ZW50ID0+IHsKICBldmVudC5yZXNwb25kV2l0aCgKICAgIGNhY2hlcy5tYXRjaChldmVudC5yZXF1ZXN0KQogICAgICAudGhlbihyZXNwb25zZSA9PiByZXNwb25zZSB8fCBmZXRjaChldmVudC5yZXF1ZXN0KSkKICApOwp9KTs=')
+                .then(registration => {
+                    console.log('FitApp registrado para uso offline!');
+                })
+                .catch(error => {
+                    console.log('Erro no registro offline:', error);
+                });
+            });
+        }
+
+        // Detect offline/online status
+        function updateOnlineStatus() {
+            if (navigator.onLine) {
+                document.body.classList.remove('offline');
+            } else {
+                document.body.classList.add('offline');
+            }
+        }
+
+        window.addEventListener('online', updateOnlineStatus);
+        window.addEventListener('offline', updateOnlineStatus);
+        updateOnlineStatus();
+
+        // Store workout progress locally
+        function saveWorkoutProgress(day, exerciseIndex, sets, reps) {
+            const progress = JSON.parse(localStorage.getItem('fitapp-progress') || '{}');
+            const date = new Date().toISOString().split('T')[0];
+            
+            if (!progress[date]) progress[date] = {};
+            if (!progress[date][day]) progress[date][day] = {};
+            
+            progress[date][day][exerciseIndex] = { sets, reps, timestamp: Date.now() };
+            localStorage.setItem('fitapp-progress', JSON.stringify(progress));
+        }
+
+        function loadWorkoutProgress(day, exerciseIndex) {
+            const progress = JSON.parse(localStorage.getItem('fitapp-progress') || '{}');
+            const date = new Date().toISOString().split('T')[0];
+            
+            return progress[date]?.[day]?.[exerciseIndex] || null;
+        }
+
+        // Enhanced exercise card with progress tracking
+        function createExerciseCardWithProgress(exercise, number, day) {
+            const card = document.createElement('div');
+            card.className = 'exercise-card rounded-xl p-6 shadow-lg';
+            const progress = loadWorkoutProgress(day, number - 1);
+            
+            card.innerHTML = `
+                <div class="flex items-start space-x-4">
+                    <div class="flex-shrink-0">
+                        <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                            ${number}
+                        </div>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="flex flex-col lg:flex-row lg:items-start lg:space-x-6">
+                            <div class="flex-grow mb-4 lg:mb-0">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">${exercise.name}</h3>
+                                <div class="bg-gradient-to-r from-purple-100 to-blue-100 rounded-lg p-3 mb-4">
+                                    <div class="flex items-center space-x-4">
+                                        <div class="flex items-center space-x-2">
+                                            <i class="fas fa-dumbbell text-purple-600"></i>
+                                            <span class="font-semibold text-purple-800">${exercise.sets}</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <i class="fas fa-clock text-blue-600"></i>
+                                            <span class="text-blue-800">60-90s descanso</span>
+                                        </div>
+                                        ${progress ? `<div class="flex items-center space-x-2">
+                                            <span class="text-green-600">✓ Concluído hoje</span>
+                                        </div>` : ''}
+                                    </div>
+                                </div>
+                                <div class="space-y-3">
+                                    <div>
+                                        <h4 class="font-semibold text-gray-700 mb-1">
+                                            <i class="fas fa-play-circle text-green-600 mr-2"></i>
+                                            Como executar:
+                                        </h4>
+                                        <p class="text-gray-600 leading-relaxed">${exercise.instructions}</p>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-700 mb-1">
+                                            <i class="fas fa-lightbulb text-yellow-600 mr-2"></i>
+                                            Dica importante:
+                                        </h4>
+                                        <p class="text-gray-600 leading-relaxed">${exercise.tips}</p>
+                                    </div>
+                                    <div class="mt-4">
+                                        <button onclick="markExerciseComplete('${day}', ${number - 1})" 
+                                                class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-colors">
+                                            ${progress ? 'Já Concluído ✓' : 'Marcar como Concluído'}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-shrink-0 lg:w-80">
+                                <div class="bg-gray-100 rounded-lg overflow-hidden">
+                                    <img src="${exercise.image}" alt="${exercise.alt}" class="w-full h-48 object-cover">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        function markExerciseComplete(day, exerciseIndex) {
+            saveWorkoutProgress(day, exerciseIndex, 'completed', 'completed');
+            showWorkout(day); // Refresh to show updated status
+        }
+
+        // Update showWorkout function to use new card creation
+        function showWorkoutWithProgress(day) {
+            const workout = workouts[day];
+            document.getElementById('dashboard').classList.add('hidden');
+            document.getElementById('workout-detail').classList.remove('hidden');
+            
+            document.getElementById('workout-title').textContent = workout.title;
+            document.getElementById('workout-subtitle').textContent = workout.subtitle;
+            
+            const container = document.getElementById('exercises-container');
+            container.innerHTML = '';
+            
+            workout.exercises.forEach((exercise, index) => {
+                const exerciseCard = createExerciseCardWithProgress(exercise, index + 1, day);
+                container.appendChild(exerciseCard);
+            });
+        }
+
+        // Override original showWorkout function
+        showWorkout = showWorkoutWithProgress;
+    </script>
+</body>
+</html>
+
+```
+
+🎨 **Generating images based on descriptions...**
+
+✅ **Images generated successfully! Here's your updated content:**
+
+```html
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="FitApp">
+    <title>FitApp - Treino Hipertrofia Quadríceps</title>
+    <link rel="manifest" href="data:application/json;charset=utf-8,{%22name%22:%22FitApp%20-%20Hipertrofia%22,%22short_name%22:%22FitApp%22,%22start_url%22:%22.%22,%22display%22:%22standalone%22,%22background_color%22:%22%23ffffff%22,%22theme_color%22:%22%23667eea%22,%22icons%22:[{%22src%22:%22data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%20100%20100%27%3E%3Ctext%20y%3D%27.9em%27%20font-size%3D%2790%27%3E💪%3C/text%3E%3C/svg%3E%22,%22sizes%22:%22192x192%22,%22type%22:%22image/svg+xml%22}]}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        =======
+=======
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        .exercise-card {
+            background: linear-gradient(145deg, #ffffff, #f0f4f8);
+            border: 1px solid #e2e8f0;
+        }
+        .timer-display {
+            font-family: 'Courier New', monospace;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .progress-ring {
+            transform: rotate(-90deg);
+        }
+        .progress-ring-circle {
+            stroke-dasharray: 251.2;
+            stroke-dashoffset: 251.2;
+            transition: stroke-dashoffset 1s linear;
+        }
+        
+        /* Offline styles for better mobile experience */
+        @media (max-width: 768px) {
+            .container { padding: 0.5rem; }
+            .text-3xl { font-size: 1.875rem; }
+            .grid { gap: 1rem; }
+            .lg\\:w-80 { width: 100%; }
+            .lg\\:flex-row { flex-direction: column; }
+        }
+        
+        /* PWA and offline enhancements */
+        body.offline::before {
+            content: "Modo Offline - Todos os dados salvos localmente";
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #fbbf24;
+            color: #000;
+            text-align: center;
+            padding: 0.5rem;
+            z-index: 1000;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="gradient-bg text-white p-4 shadow-lg">
+        <div class="container mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <i class="fas fa-dumbbell text-2xl"></i>
+                <h1 class="text-2xl font-bold">FitApp - Hipertrofia</h1>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span class="text-sm">Peso: 57kg</span>
+                <i class="fas fa-user-circle text-2xl"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4">
+        <!-- Dashboard View -->
+        <div id="dashboard" class="space-y-6">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">Seu Treino Semanal</h2>
+                <p class="text-gray-600">Programa focado em hipertrofia de quadríceps</p>
+            </div>
+
+            <!-- Weekly Schedule -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Segunda -->
+                <div class="workout-card card-hover bg-white rounded-xl p-6 shadow-lg cursor-pointer" onclick="showWorkout('monday')">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-gray-800">Segunda-feira</h3>
+                        <i class="fas fa-fire text-red-500 text-2xl"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <p class="text-purple-600 font-semibold text-lg">QUADRÍCEPS ISOLADO</p>
+                        <p class="text-gray-600">7 exercícios • 60 min</p>
+                        <div class="flex items-center space-x-2 text-sm text-gray-500">
+                            <i class="fas fa-clock"></i>
+                            <span>Foco máximo em hipertrofia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Terça -->
+                <div class="workout-card card-hover bg-white rounded-xl p-6 shadow-lg cursor-pointer" onclick="showWorkout('tuesday')">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-gray-800">Terça-feira</h3>
+                        <i class="fas fa-muscle text-blue-500 text-2xl"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <p class="text-blue-600 font-semibold text-lg">COSTAS + BÍCEPS + ABD</p>
+                        <p class="text-gray-600">9 exercícios • 60 min</p>
+                        <div class="flex items-center space-x-2 text-sm text-gray-500">
+                            <i class="fas fa-clock"></i>
+                            <span>Pull + Core</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quarta -->
+                <div class="workout-card card-hover bg-gray-100 rounded-xl p-6 shadow-lg">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-gray-600">Quarta-feira</h3>
+                        <i class="fas fa-bed text-gray-400 text-2xl"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <p class="text-gray-500 font-semibold text-lg">DESCANSO</p>
+                        <p class="text-gray-500">Recuperação ativa</p>
+                        <div class="flex items-center space-x-2 text-sm text-gray-400">
+                            <i class="fas fa-spa"></i>
+                            <span>Relaxamento e alongamento</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quinta -->
+                <div class="workout-card card-hover bg-white rounded-xl p-6 shadow-lg cursor-pointer" onclick="showWorkout('thursday')">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-gray-800">Quinta-feira</h3>
+                        <i class="fas fa-chart-line text-green-500 text-2xl"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <p class="text-green-600 font-semibold text-lg">POSTERIOR + GLÚTEOS</p>
+                        <p class="text-gray-600">7 exercícios • 55 min</p>
+                        <div class="flex items-center space-x-2 text-sm text-gray-500">
+                            <i class="fas fa-clock"></i>
+                            <span>Força e definição</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sexta -->
+                <div class="workout-card card-hover bg-white rounded-xl p-6 shadow-lg cursor-pointer" onclick="showWorkout('friday')">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-gray-800">Sexta-feira</h3>
+                        <i class="fas fa-lightning-bolt text-yellow-500 text-2xl"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <p class="text-yellow-600 font-semibold text-lg">OMBROS + TRÍCEPS + ABD</p>
+                        <p class="text-gray-600">9 exercícios • 60 min</p>
+                        <div class="flex items-center space-x-2 text-sm text-gray-500">
+                            <i class="fas fa-clock"></i>
+                            <span>Push + Core</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sábado -->
+                <div class="workout-card card-hover bg-white rounded-xl p-6 shadow-lg cursor-pointer" onclick="showWorkout('saturday')">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-gray-800">Sábado</h3>
+                        <i class="fas fa-heartbeat text-pink-500 text-2xl"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <p class="text-pink-600 font-semibold text-lg">PANTURRILHAS + CORE</p>
+                        <p class="text-gray-600">6 exercícios • 45 min</p>
+                        <div class="flex items-center space-x-2 text-sm text-gray-500">
+                            <i class="fas fa-clock"></i>
+                            <span>Finalizador semanal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Weekly Stats -->
+            <div class="bg-white rounded-xl p-6 shadow-lg mt-8">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">Estatísticas da Semana</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-purple-600">5</div>
+                        <div class="text-sm text-gray-600">Dias de treino</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-blue-600">37</div>
+                        <div class="text-sm text-gray-600">Exercícios total</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-green-600">5h</div>
+                        <div class="text-sm text-gray-600">Tempo semanal</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-red-600">14</div>
+                        <div class="text-sm text-gray-600">Séries quadríceps</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Workout Detail View -->
+        <div id="workout-detail" class="hidden">
+            <div class="flex items-center mb-6">
+                <button onclick="showDashboard()" class="bg-gray-200 hover:bg-gray-300 p-2 rounded-lg mr-4 transition-colors">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <div>
+                    <h2 id="workout-title" class="text-2xl font-bold text-gray-800"></h2>
+                    <p id="workout-subtitle" class="text-gray-600"></p>
+                </div>
+            </div>
+
+            <!-- Timer Section -->
+            <div class="bg-white rounded-xl p-6 shadow-lg mb-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-800">Timer de Descanso</h3>
+                        <p class="text-gray-600">Entre séries: 60-90 segundos</p>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="relative">
+                            <svg class="w-16 h-16 progress-ring">
+                                <circle cx="32" cy="32" r="28" stroke="#e2e8f0" stroke-width="4" fill="none"></circle>
+                                <circle id="progress-circle" cx="32" cy="32" r="28" stroke="#667eea" stroke-width="4" fill="none" class="progress-ring-circle"></circle>
+                            </svg>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span id="timer-display" class="text-lg font-bold text-gray-800">90</span>
+                            </div>
+                        </div>
+                        <div class="space-x-2">
+                            <button id="start-timer" onclick="startTimer(90)" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-colors">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <button id="stop-timer" onclick="stopTimer()" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition-colors">
+                                <i class="fas fa-stop"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercises List -->
+            <div id="exercises-container" class="space-y-4">
+                <!-- Exercises will be dynamically loaded here -->
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Workout data
+        const workouts = {
+            monday: {
+                title: "Segunda-feira - Quadríceps Isolado",
+                subtitle: "Foco máximo em hipertrofia de quadríceps",
+                exercises: [
+                    {
+                        name: "Agachamento Livre",
+                        sets: "4x8-10",
+                        instructions: "Posicione a barra nas costas, desça controladamente até 90°, mantenha o core contraído. Foque na contração do quadríceps na subida.",
+                        tips: "Mantenha os joelhos alinhados com os pés, não deixe-os ceder para dentro.",
+                        image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4bb7e220-1ec2-41ac-a714-1ec89ba1d7e0.png",
+                        alt: "Person performing barbell back squat with proper form, knees aligned over toes, descending to 90 degrees"
+                    },
+                    {
+                        name: "Leg Press 45°",
+                        sets: "4x10-12",
+                        instructions: "Posicione os pés na plataforma na largura do quadril, desça até formar 90° nos joelhos, empurre com força.",
+                        tips: "Controle a descida por 2-3 segundos, expire na subida.",
+                        image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e1ea6ceb-2092-489d-ad79-e71b0f8f5a5b.png",
+                        alt: "Woman using 45-degree leg press machine with feet positioned shoulder-width apart, knees at 90 degrees"
+                    },
+                    {
+                        name: "Agachamento Hack",
+                        sets: "3x10-12",
+                        instructions: "No hack squat, mantenha as costas apoiadas, desça controladamente e empurre pelos calcanhares.",
+                        tips: "Posição dos pés mais alta na plataforma enfatiza quadríceps.",
+                        image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/78064bea-af54-452c-9f14-c7e12169aa90.png",
+                        alt: "Person using hack squat machine with back supported against pad, feet positioned high on platform"
+                    },
+                    {
+                        name: "Agachamento Búlgaro",
+                        sets: "3x12 cada perna",
+                        instructions: "Pé traseiro apoiado no banco, desça o joelho quase tocando o chão, suba contraindo o quadríceps.",
+                        tips: "Mantenha o tronco ereto, não se incline para frente.",
+                        image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2016abc0-18ae-41aa-8feb-18d832f0dbb2.png",
+                        alt: "Woman performing Bulgarian split squat with rear foot elevated on bench, front leg forming 90-degree angle"
+                    },
+                    {
+                        name: "Afundo Caminhando",
+                        sets: "3x12 cada perna",
+                        instructions: "Dê um passo à frente, desça até ambos os joelhos formarem 90°, empurre e alterne as pernas.",
+                        tips: "Mantenha o passo longo para maior ativação do quadríceps.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person performing walking lunges with proper form, alternating legs with each step forward"
+                    },
+                    {
+                        name: "Extensora",
+                        sets: "4x12-15",
+                        instructions: "Sentada na extensora, estenda as pernas completamente, contraia o quadríceps no topo por 1 segundo.",
+                        tips: "Movimento controlado, evite balanço, foque na contração.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Woman seated on leg extension machine, extending legs to full extension while contracting quadriceps"
+                    },
+                    {
+                        name: "Extensora Drop Set",
+                        sets: "2x12+8+6",
+                        instructions: "Faça 12 reps, reduza o peso imediatamente, faça 8 reps, reduza novamente e faça 6 reps sem descanso.",
+                        tips: "Técnica avançada para falha muscular total.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Close-up of leg extension machine with weight stack, showing drop set technique progression"
+                    }
+                ]
+            },
+            tuesday: {
+                title: "Terça-feira - Costas + Bíceps + Abdômen",
+                subtitle: "Treino de puxar + fortalecimento do core",
+                exercises: [
+                    {
+                        name: "Puxada Frente",
+                        sets: "4x8-10",
+                        instructions: "Segure a barra com pegada ampla, puxe até a altura do peito, contraia as escápulas.",
+                        tips: "Mantenha o peito estufado, não balance o corpo.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person performing lat pulldown with wide grip, pulling bar to chest level with proper posture"
+                    },
+                    {
+                        name: "Remada Curvada",
+                        sets: "4x10-12",
+                        instructions: "Incline o tronco 45°, puxe a barra até o abdômen, aperte as escápulas.",
+                        tips: "Mantenha as costas retas, core contraído.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person performing bent-over barbell row with 45-degree torso angle, pulling bar to abdomen"
+                    },
+                    {
+                        name: "Remada Sentada",
+                        sets: "3x10-12",
+                        instructions: "Sentado na polia, puxe o cabo até o abdômen, mantenha o peito estufado.",
+                        tips: "Controle a fase negativa, não use impulso.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person seated at cable row machine, pulling handle to abdomen with chest out and shoulders back"
+                    },
+                    {
+                        name: "Pullover",
+                        sets: "3x12-15",
+                        instructions: "Deitado no banco, segure o halter acima do peito, desça atrás da cabeça controladamente.",
+                        tips: "Mantenha leve flexão nos cotovelos, sinta o alongamento.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person lying on bench performing dumbbell pullover, lowering weight behind head with slight elbow bend"
+                    },
+                    {
+                        name: "Rosca Direta",
+                        sets: "4x10-12",
+                        instructions: "Em pé, cotovelos fixos, flexione os braços contraindo os bíceps no topo.",
+                        tips: "Não balance o corpo, movimento isolado dos bíceps.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person standing with barbell performing bicep curls, elbows fixed at sides, full range of motion"
+                    },
+                    {
+                        name: "Rosca Martelo",
+                        sets: "3x12-15",
+                        instructions: "Halteres em posição neutra, flexione alternadamente mantendo punhos firmes.",
+                        tips: "Movimento controlado, foque na contração do bíceps.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person performing hammer curls with dumbbells in neutral grip position, alternating arms"
+                    },
+                    {
+                        name: "Rosca Concentrada",
+                        sets: "3x12-15",
+                        instructions: "Sentado, cotovelo apoiado na coxa, flexione o braço isoladamente.",
+                        tips: "Movimento lento e controlado, máxima contração.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person seated performing concentration curls with elbow braced against inner thigh"
+                    },
+                    {
+                        name: "Prancha",
+                        sets: "3x30-45seg",
+                        instructions: "Apoie antebraços e pés, mantenha corpo alinhado, contraia o abdômen.",
+                        tips: "Não deixe o quadril ceder, respiração controlada.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person holding plank position with forearms and feet supporting body, maintaining straight line"
+                    },
+                    {
+                        name: "Abdominal Supra",
+                        sets: "3x15-20",
+                        instructions: "Deitado, mãos atrás da cabeça, suba contraindo o abdômen superior.",
+                        tips: "Não puxe o pescoço, movimento controlado.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person lying on back performing crunches with hands behind head, lifting shoulders off ground"
+                    }
+                ]
+            },
+            thursday: {
+                title: "Quinta-feira - Posterior + Glúteos",
+                subtitle: "Fortalecimento de posterior e glúteos",
+                exercises: [
+                    {
+                        name: "Hip Thrust",
+                        sets: "4x12-15",
+                        instructions: "Costas apoiadas no banco, barra no quadril, empurre contraindo glúteos no topo.",
+                        tips: "Pause 1 segundo no topo, máxima contração glútea.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person performing hip thrust with back against bench, barbell across hips, full glute contraction at top"
+                    },
+                    {
+                        name: "Stiff",
+                        sets: "4x10-12",
+                        instructions: "Pernas estendidas, desça a barra deslizando pelas pernas, sinta o alongamento posterior.",
+                        tips: "Mantenha as costas retas, movimento no quadril.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person performing Romanian deadlift with barbell, sliding weight down legs with straight back"
+                    },
+                    {
+                        name: "Mesa Flexora",
+                        sets: "4x12-15",
+                        instructions: "Deitado na mesa, flexione as pernas contraindo os isquiotibiais.",
+                        tips: "Movimento controlado, contraia no topo por 1 segundo.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person lying face down on leg curl machine, curling legs up by contracting hamstrings"
+                    },
+                    {
+                        name: "Agachamento Sumo",
+                        sets: "3x12-15",
+                        instructions: "Pés afastados, pontas para fora, desça contraindo glúteos e adutores.",
+                        tips: "Joelhos seguem direção dos pés, descida profunda.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person performing sumo squat with wide stance and toes pointed outward, deep squat position"
+                    },
+                    {
+                        name: "Elevação Pélvica",
+                        sets: "3x15-20",
+                        instructions: "Deitado, pés no chão, eleve o quadril contraindo glúteos.",
+                        tips: "Movimento explosivo na subida, pause no topo.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person lying on back performing glute bridges, lifting hips up while contracting glutes"
+                    },
+                    {
+                        name: "Cadeira Abdutora",
+                        sets: "3x15-20",
+                        instructions: "Sentado na máquina, abra as pernas contra a resistência.",
+                        tips: "Movimento controlado, foque na contração lateral do glúteo.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person seated on hip abduction machine, spreading legs apart against resistance"
+                    },
+                    {
+                        name: "Good Morning",
+                        sets: "3x12-15",
+                        instructions: "Barra nas costas, incline o tronco mantendo pernas levemente flexionadas.",
+                        tips: "Movimento no quadril, sinta o alongamento posterior.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person with barbell on shoulders performing good morning exercise, hinging at hips with slight knee bend"
+                    }
+                ]
+            },
+            friday: {
+                title: "Sexta-feira - Ombros + Tríceps + Abdômen",
+                subtitle: "Treino de empurrar + fortalecimento do core",
+                exercises: [
+                    {
+                        name: "Desenvolvimento Ombros",
+                        sets: "4x8-10",
+                        instructions: "Sentado, empurre a barra acima da cabeça, desça controladamente até a altura dos ombros.",
+                        tips: "Mantenha o core contraído, não arqueie as costas.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person seated performing overhead press with barbell, pressing weight above head with controlled movement"
+                    },
+                    {
+                        name: "Elevação Lateral",
+                        sets: "4x12-15",
+                        instructions: "Braços ao lado do corpo, eleve os halteres lateralmente até altura dos ombros.",
+                        tips: "Leve inclinação para frente, não balance o corpo.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person performing lateral raises with dumbbells, lifting weights to shoulder height with arms extended"
+                    },
+                    {
+                        name: "Elevação Posterior",
+                        sets: "3x12-15",
+                        instructions: "Inclinado, abra os braços para trás contraindo a parte posterior dos ombros.",
+                        tips: "Movimento controlado, foque no deltóide posterior.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person bent over performing rear delt flyes with dumbbells, opening arms backward to target rear delts"
+                    },
+                    {
+                        name: "Desenvolvimento Arnold",
+                        sets: "3x10-12",
+                        instructions: "Inicie com halteres na frente, gire e empurre acima da cabeça.",
+                        tips: "Movimento fluido de rotação e empurrada.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person performing Arnold press with dumbbells, rotating from front position to overhead press"
+                    },
+                    {
+                        name: "Tríceps Pulley",
+                        sets: "4x10-12",
+                        instructions: "Cotovelos fixos, empurre a barra para baixo estendendo completamente os braços.",
+                        tips: "Não mova os cotovelos, foque na extensão do tríceps.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person at cable machine performing tricep pushdowns, elbows fixed while extending arms downward"
+                    },
+                    {
+                        name: "Tríceps Francês",
+                        sets: "3x10-12",
+                        instructions: "Deitado, desça o peso atrás da cabeça flexionando apenas os cotovelos.",
+                        tips: "Cotovelos fixos, movimento isolado do tríceps.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person lying on bench performing French press, lowering weight behind head by bending elbows only"
+                    },
+                    {
+                        name: "Tríceps Coice",
+                        sets: "3x12-15",
+                        instructions: "Inclinado, cotovelo fixo, estenda o braço para trás contraindo o tríceps.",
+                        tips: "Movimento controlado, pause na extensão completa.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person bent over performing tricep kickbacks with dumbbell, extending arm backward from fixed elbow position"
+                    },
+                    {
+                        name: "Abdominal Bicicleta",
+                        sets: "3x20",
+                        instructions: "Deitado, simule pedalar trazendo cotovelo ao joelho oposto alternadamente.",
+                        tips: "Movimento controlado, contraia o oblíquo a cada repetição.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person lying on back performing bicycle crunches, bringing opposite elbow to knee in cycling motion"
+                    },
+                    {
+                        name: "Elevação de Pernas",
+                        sets: "3x15-20",
+                        instructions: "Deitado, eleve as pernas estendidas contraindo o abdômen inferior.",
+                        tips: "Não balance as pernas, movimento controlado.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person lying on back performing leg raises, lifting straight legs up while contracting lower abs"
+                    }
+                ]
+            },
+            saturday: {
+                title: "Sábado - Panturrilhas + Core",
+                subtitle: "Finalizador semanal focado em panturrilhas e core",
+                exercises: [
+                    {
+                        name: "Panturrilha em Pé",
+                        sets: "4x15-20",
+                        instructions: "Na máquina em pé, suba na ponta dos pés contraindo as panturrilhas no topo.",
+                        tips: "Amplitude completa, pause 1 segundo no topo.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person on standing calf raise machine, rising up on toes with full contraction at the top"
+                    },
+                    {
+                        name: "Panturrilha Sentada",
+                        sets: "4x15-20",
+                        instructions: "Sentado na máquina, suba na ponta dos pés contra a resistência.",
+                        tips: "Movimento lento e controlado, máxima contração.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person seated on calf raise machine, lifting up on toes against resistance with controlled movement"
+                    },
+                    {
+                        name: "Panturrilha no Leg Press",
+                        sets: "3x20-25",
+                        instructions: "No leg press, use apenas a ponta dos pés para empurrar a plataforma.",
+                        tips: "Amplitude completa, sinta o alongamento na descida.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person using leg press machine for calf raises, pushing platform with toes only for full range of motion"
+                    },
+                    {
+                        name: "Prancha Lateral",
+                        sets: "3x20-30seg cada lado",
+                        instructions: "Apoiado lateralmente no antebraço, mantenha corpo alinhado contraindo oblíquos.",
+                        tips: "Não deixe o quadril ceder, respiração controlada.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person holding side plank position supported by forearm, maintaining straight body line while contracting obliques"
+                    },
+                    {
+                        name: "Russian Twist",
+                        sets: "3x20",
+                        instructions: "Sentado, incline o tronco e gire de um lado para outro contraindo oblíquos.",
+                        tips: "Movimento controlado, mantenha pés elevados.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person seated performing Russian twists, rotating torso side to side with feet elevated and core engaged"
+                    },
+                    {
+                        name: "Prancha",
+                        sets: "3x45-60seg",
+                        instructions: "Apoio nos antebraços e pés, corpo alinhado, contração contínua do core.",
+                        tips: "Aumente o tempo progressivamente, respiração regular.",
+                        image: "https://placehold.co/400x300",
+                        alt: "Person in extended plank position with perfect alignment, holding for maximum time with core engaged"
+                    }
+                ]
+            }
+        };
+
+        let timerInterval;
+        let currentTime = 90;
+
+        function showWorkout(day) {
+            const workout = workouts[day];
+            document.getElementById('dashboard').classList.add('hidden');
+            document.getElementById('workout-detail').classList.remove('hidden');
+            
+            document.getElementById('workout-title').textContent = workout.title;
+            document.getElementById('workout-subtitle').textContent = workout.subtitle;
+            
+            const container = document.getElementById('exercises-container');
+            container.innerHTML = '';
+            
+            workout.exercises.forEach((exercise, index) => {
+                const exerciseCard = createExerciseCard(exercise, index + 1);
+                container.appendChild(exerciseCard);
+            });
+        }
+
+        function createExerciseCard(exercise, number) {
+            const card = document.createElement('div');
+            card.className = 'exercise-card rounded-xl p-6 shadow-lg';
+            
+            card.innerHTML = `
+                <div class="flex items-start space-x-4">
+                    <div class="flex-shrink-0">
+                        <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                            ${number}
+                        </div>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="flex flex-col lg:flex-row lg:items-start lg:space-x-6">
+                            <div class="flex-grow mb-4 lg:mb-0">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">${exercise.name}</h3>
+                                <div class="bg-gradient-to-r from-purple-100 to-blue-100 rounded-lg p-3 mb-4">
+                                    <div class="flex items-center space-x-4">
+                                        <div class="flex items-center space-x-2">
+                                            <i class="fas fa-dumbbell text-purple-600"></i>
+                                            <span class="font-semibold text-purple-800">${exercise.sets}</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <i class="fas fa-clock text-blue-600"></i>
+                                            <span class="text-blue-800">60-90s descanso</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="space-y-3">
+                                    <div>
+                                        <h4 class="font-semibold text-gray-700 mb-1">
+                                            <i class="fas fa-play-circle text-green-600 mr-2"></i>
+                                            Como executar:
+                                        </h4>
+                                        <p class="text-gray-600 leading-relaxed">${exercise.instructions}</p>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-700 mb-1">
+                                            <i class="fas fa-lightbulb text-yellow-600 mr-2"></i>
+                                            Dica importante:
+                                        </h4>
+                                        <p class="text-gray-600 leading-relaxed">${exercise.tips}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-shrink-0 lg:w-80">
+                                <div class="bg-gray-100 rounded-lg overflow-hidden">
+                                    <img src="${exercise.image}" alt="${exercise.alt}" class="w-full h-48 object-cover">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        function showDashboard() {
+            document.getElementById('workout-detail').classList.add('hidden');
+            document.getElementById('dashboard').classList.remove('hidden');
+            stopTimer();
+        }
+
+        function startTimer(seconds) {
+            clearInterval(timerInterval);
+            currentTime = seconds;
+            updateTimerDisplay();
+            
+            const circle = document.getElementById('progress-circle');
+            const circumference = 2 * Math.PI * 28;
+            
+            timerInterval = setInterval(() => {
+                currentTime--;
+                updateTimerDisplay();
+                
+                const progress = (seconds - currentTime) / seconds;
+                const offset = circumference - (progress * circumference);
+                circle.style.strokeDashoffset = offset;
+                
+                if (currentTime <= 0) {
+                    clearInterval(timerInterval);
+                    playNotification();
+                }
+            }, 1000);
+        }
+
+        function stopTimer() {
+            clearInterval(timerInterval);
+            currentTime = 90;
+            updateTimerDisplay();
+            const circle = document.getElementById('progress-circle');
+            circle.style.strokeDashoffset = 251.2;
+        }
+
+        function updateTimerDisplay() {
+            document.getElementById('timer-display').textContent = currentTime;
+        }
+
+        function playNotification() {
+            // Simple notification for timer completion
+            if ('Notification' in window && Notification.permission === 'granted') {
+                new Notification('Descanso finalizado!', {
+                    body: 'Hora de fazer a próxima série!',
+                    icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>'
+                });
+            } else {
+                alert('Descanso finalizado! Hora da próxima série!');
+            }
+        }
+
+        // Request notification permission on page load
+        if ('Notification' in window && Notification.permission === 'default') {
+            Notification.requestPermission();
+        }
+
+        // Initialize timer display
+        updateTimerDisplay();
+
+        // Service Worker for offline functionality
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('data:application/javascript;base64,Y29uc3QgQ0FDSEVfTkFNRSA9ICdmaXRhcHAtdjEnOwpjb25zdCB1cmxzVG9DYWNoZSA9IFsKICAnLicsCiAgJy4vaW5kZXguaHRtbCcsCiAgJ2h0dHBzOi8vcGxhY2Vob2xkLmNvL3RhaWx3aW5kY3NzQDMuMy4wLm1pbi5qcycKXTsKCnNlbGYuYWRkRXZlbnRMaXN0ZW5lcignaW5zdGFsbCcsIGV2ZW50ID0+IHsKICBldmVudC53YWl0VW50aWwoCiAgICBjYWNoZXMub3BlbihDQUNIRV9OQU1FKQogICAgICAudGhlbihjYWNoZSA9PiBjYWNoZS5hZGRBbGwodXJsc1RvQ2FjaGUpKQogICk7Cn0pOwoKc2VsZi5hZGRFdmVudExpc3RlbmVyKCdmZXRjaCcsIGV2ZW50ID0+IHsKICBldmVudC5yZXNwb25kV2l0aCgKICAgIGNhY2hlcy5tYXRjaChldmVudC5yZXF1ZXN0KQogICAgICAudGhlbihyZXNwb25zZSA9PiByZXNwb25zZSB8fCBmZXRjaChldmVudC5yZXF1ZXN0KSkKICApOwp9KTs=')
+                .then(registration => {
+                    console.log('FitApp registrado para uso offline!');
+                })
+                .catch(error => {
+                    console.log('Erro no registro offline:', error);
+                });
+            });
+        }
+
+        // Detect offline/online status
+        function updateOnlineStatus() {
+            if (navigator.onLine) {
+                document.body.classList.remove('offline');
+            } else {
+                document.body.classList.add('offline');
+            }
+        }
+
+        window.addEventListener('online', updateOnlineStatus);
+        window.addEventListener('offline', updateOnlineStatus);
+        updateOnlineStatus();
+
+        // Store workout progress locally
+        function saveWorkoutProgress(day, exerciseIndex, sets, reps) {
+            const progress = JSON.parse(localStorage.getItem('fitapp-progress') || '{}');
+            const date = new Date().toISOString().split('T')[0];
+            
+            if (!progress[date]) progress[date] = {};
+            if (!progress[date][day]) progress[date][day] = {};
+            
+            progress[date][day][exerciseIndex] = { sets, reps, timestamp: Date.now() };
+            localStorage.setItem('fitapp-progress', JSON.stringify(progress));
+        }
+
+        function loadWorkoutProgress(day, exerciseIndex) {
+            const progress = JSON.parse(localStorage.getItem('fitapp-progress') || '{}');
+            const date = new Date().toISOString().split('T')[0];
+            
+            return progress[date]?.[day]?.[exerciseIndex] || null;
+        }
+
+        // Enhanced exercise card with progress tracking
+        function createExerciseCardWithProgress(exercise, number, day) {
+            const card = document.createElement('div');
+            card.className = 'exercise-card rounded-xl p-6 shadow-lg';
+            const progress = loadWorkoutProgress(day, number - 1);
+            
+            card.innerHTML = `
+                <div class="flex items-start space-x-4">
+                    <div class="flex-shrink-0">
+                        <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                            ${number}
+                        </div>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="flex flex-col lg:flex-row lg:items-start lg:space-x-6">
+                            <div class="flex-grow mb-4 lg:mb-0">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">${exercise.name}</h3>
+                                <div class="bg-gradient-to-r from-purple-100 to-blue-100 rounded-lg p-3 mb-4">
+                                    <div class="flex items-center space-x-4">
+                                        <div class="flex items-center space-x-2">
+                                            <i class="fas fa-dumbbell text-purple-600"></i>
+                                            <span class="font-semibold text-purple-800">${exercise.sets}</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <i class="fas fa-clock text-blue-600"></i>
+                                            <span class="text-blue-800">60-90s descanso</span>
+                                        </div>
+                                        ${progress ? `<div class="flex items-center space-x-2">
+                                            <span class="text-green-600">✓ Concluído hoje</span>
+                                        </div>` : ''}
+                                    </div>
+                                </div>
+                                <div class="space-y-3">
+                                    <div>
+                                        <h4 class="font-semibold text-gray-700 mb-1">
+                                            <i class="fas fa-play-circle text-green-600 mr-2"></i>
+                                            Como executar:
+                                        </h4>
+                                        <p class="text-gray-600 leading-relaxed">${exercise.instructions}</p>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-700 mb-1">
+                                            <i class="fas fa-lightbulb text-yellow-600 mr-2"></i>
+                                            Dica importante:
+                                        </h4>
+                                        <p class="text-gray-600 leading-relaxed">${exercise.tips}</p>
+                                    </div>
+                                    <div class="mt-4">
+                                        <button onclick="markExerciseComplete('${day}', ${number - 1})" 
+                                                class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-colors">
+                                            ${progress ? 'Já Concluído ✓' : 'Marcar como Concluído'}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-shrink-0 lg:w-80">
+                                <div class="bg-gray-100 rounded-lg overflow-hidden">
+                                    <img src="${exercise.image}" alt="${exercise.alt}" class="w-full h-48 object-cover">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        function markExerciseComplete(day, exerciseIndex) {
+            saveWorkoutProgress(day, exerciseIndex, 'completed', 'completed');
+            showWorkout(day); // Refresh to show updated status
+        }
+
+        // Update showWorkout function to use new card creation
+        function showWorkoutWithProgress(day) {
+            const workout = workouts[day];
+            document.getElementById('dashboard').classList.add('hidden');
+            document.getElementById('workout-detail').classList.remove('hidden');
+            
+            document.getElementById('workout-title').textContent = workout.title;
+            document.getElementById('workout-subtitle').textContent = workout.subtitle;
+            
+            const container = document.getElementById('exercises-container');
+            container.innerHTML = '';
+            
+            workout.exercises.forEach((exercise, index) => {
+                const exerciseCard = createExerciseCardWithProgress(exercise, index + 1, day);
+                container.appendChild(exerciseCard);
+            });
+        }
+
+        // Override original showWorkout function
+        showWorkout = showWorkoutWithProgress;
+    </script>
+</body>
+</html>
+
+```
